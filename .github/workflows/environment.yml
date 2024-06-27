@@ -1,14 +1,12 @@
 name: Environment variables
-
 on: push
-
+env:
+  EXAMPLE: Defined by workflow level # ワークフローレベルで定義
 jobs:
   run:
     runs-on: ubuntu-latest
-    env:
-      BRANCH: main # ジョブレベルで環境変数を定義
     steps:
-      - run: echo "${BRANCH}"
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ env.BRANCH }}
+      - run: echo "${EXAMPLE}" # ワークフローenvを出力
+      - env:
+          EXAMPLE: Defined by steps level # ステップレベルで変数定義
+        run: echo "${EXAMPLE}" # ステップレベルでジョブの環境変数を参照
