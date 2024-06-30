@@ -10,3 +10,4 @@ jobs:
       - env:
           EXAMPLE: Defined by steps level # ステップレベルで変数定義
         run: echo "${EXAMPLE}" # ステップレベルでジョブの環境変数を参照
+      - run: echo "${vars.USERNAME}" # Variables追加
