@@ -6,4 +6,8 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${vars.USERNAME}" # Variables追加
+      - run: echo "${{ EXAMPLE }}" # ワークフローenvを出力
+      - env:
+          EXAMPLE: Defined by steps level # ステップレベルで変数定義
+        run: echo "${{ EXAMPLE }}" # ステップレベルでジョブの環境変数を参照
+      - run: echo "${{ vars.USERNAME }}" # Variables追加
