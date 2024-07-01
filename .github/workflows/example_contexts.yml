@@ -6,4 +6,6 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.*.html_url }}
+      - run: printenv | grep 'LITERAL_'
+        env:
+          LITERAL_OBJECT: ${{ github.event.*.html_url }}
