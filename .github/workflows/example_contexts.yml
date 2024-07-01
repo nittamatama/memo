@@ -6,5 +6,4 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ vars.USERNAME }}"
-      - run: echo "${{ secrets.PASSWORD}}"
+      - run: echo "${{ github.event.*.html_url }}"
