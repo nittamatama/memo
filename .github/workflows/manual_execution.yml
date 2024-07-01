@@ -1,14 +1,12 @@
-name: Manual
-on:
-  workflow_dispatch: # 手動実行イベント
-    inputs: # 入力パラメータ
-      greeting:                    # 任意の入力パラメータ名を付ける
-        type: string               # 入力パラメータの型を定義
-        default: Hello             # 入力パラメータのデフォルト値を定義
-        required: true             # 入力パラメータの必須フラグ
-        description: ハローできるよ  # 入力パラメータの説明
+name: Compare functions
+
+on: push
 jobs:
-  run:
+  compare:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ inputs.greeting }} world"
+      - run: printenv | grep '_FUNC'
+        env:
+          CONTAINS_FUNC: ${{ contains('Hello', 'ell') }} # ellを含むか
+          STARTS_WITH_FUNC: ${{ startsWith('Hello', 'He') }} # Heで始まるか
+          ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo') }} # loで終わるか
