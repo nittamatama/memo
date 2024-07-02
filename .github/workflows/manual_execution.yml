@@ -1,9 +1,8 @@
-name: Status check functions
+name: share data
 on: push
 jobs:
-  fail:
+  share:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1          # 終了ステータスがゼロ以外なので、エラーが発生する
-      - run: echo "Hello"
-        if: ${{ failure() }} # エラーが発生しても、failure関数があるので実行される
+      - run: export RESULT="hello" # exportで受け渡し？
+      - run: echo "${RESULT}"
