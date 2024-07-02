@@ -1,11 +1,11 @@
-name: example_contexts
+# name: example_contexts
 
-on: push
+# on: push
 
-jobs:
-  print:
-    runs-on: ubuntu-latest
-    steps:
-      - run: printenv | grep 'LITERAL_'
-        env:
-          LITERAL_OBJECT: ${{ github.event.*.html_url }}
+# jobs:
+#   print:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: printenv | grep 'LITERAL_'
+#         env:
+#           LITERAL_OBJECT: ${{ github.event.*.html_url }}
